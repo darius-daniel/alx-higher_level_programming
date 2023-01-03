@@ -3,4 +3,4 @@
 for letter in ("abcdefghijklmnopqrstuvwxyz"):
     if letter == 'q' or letter == 'e':
         continue
-    print(letter, end='')
+    print('{}'.format(letter), end='')
