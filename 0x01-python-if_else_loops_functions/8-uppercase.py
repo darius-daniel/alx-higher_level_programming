@@ -5,6 +5,8 @@ def uppercase(str):
     upper_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     end_str, i = '', 0
 
+    if ch == '':
+        print("{}".format('\n'))
     for ch in str:
         if i == len(str) - 1:
             end_str = '\n'
