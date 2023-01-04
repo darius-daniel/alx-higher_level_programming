@@ -5,6 +5,6 @@ for i in range(9):
         if j == i:
             continue
         elif i == 8 and j == 9:
-            print(f"{i}{j}")
+            print("{}{}".format(i, j))
         else:
-            print(f"{i}{j}", end=', ')
+            print("{}{}".format(i, j), end=', ')
