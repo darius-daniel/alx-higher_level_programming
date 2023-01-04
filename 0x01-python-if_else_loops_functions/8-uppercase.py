@@ -10,8 +10,8 @@ def uppercase(str):
             end_str = '\n'
 
         if ch in lower_chars:
-            print(f"{upper_chars[lower_chars.find(ch)]}", end=end_str)
+            print("{}".format(upper_chars[lower_chars.find(ch)]), end=end_str)
         else:
-            print(ch, end=end_str)
+            print("{}".format(ch), end=end_str)
 
         i += 1
