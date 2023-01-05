@@ -1,4 +1,4 @@
-0x00-python-hello_world/main.pyc
-0x00-python-hello_world/__pycache__/main.cpython-310.pyc
+__pycache__
 0x01-python-if_else_loops_functions/13-main.c
 0x01-python-if_else_loops_functions/a.out
+*.pyc
