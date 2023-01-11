@@ -94,3 +94,13 @@
 * If no score found, return `None`
 * All students are assumed to have a different score (i.e. no two students have the same score)
 * Not allowed to import new modules
+
+#### 11. Multiply by using map
+
+* **File:** `11-multiply_list_map.py `- contains a function that returns a list with all values multiplied by a number without using any loops.
+* **Prototype:** `def multiply_list_map(my_list=[], number=0):`
+* Returns a new list:
+  * Same length as `my_list`
+  * Each value should be multiplied by `number`
+* Initial list should not be modified
+* Not allowed to import new modules
