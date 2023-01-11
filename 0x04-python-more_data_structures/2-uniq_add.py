@@ -3,7 +3,7 @@
 def uniq_add(my_list=[]):
     if my_list:
         sum = 0
-        for num in my_list:
-            if my_list.count(num) == 1:
-                sum += num
+        for i in range(len(my_list)):
+            if my_list[i] not in my_list[:i]:
+                sum += my_list[i]
         return sum
