@@ -59,3 +59,38 @@
 * Keys should be sorted by alphabetical order
 * Only keys of the first order should be sorted (don't sort keys of a dictionary inside the main directory)
 * Not allowed to import new modules
+
+#### 7. Update dictionary
+
+* **File:** `7-update_dictionary.py `- contains a function that replaces or add key/value in a dictionary.
+* **Prototype:** `def update_dictionary(a_dictionary, key, value):`
+* `key` argument will always be a string
+* `value` argument will be any type
+* If a key exists in the dictionary, the value will be replaced
+* If a key doesn't exist in the dictionary, it will be created.
+* Not allowed to import new modules
+
+#### 8. Simple delete by key
+
+* **File:** `8-simple_delete.py `- contains a function that deletes a key in a dictionary
+* **Prototype:** `def simple_delete(a_dictionary, key=""):`
+* `key` argument will always be a string
+* If a key doesn't exist, the dictionary won't change
+* Not allowed to import new modules
+
+#### 9. Multiply by 2
+
+* **File:** `9-multiply_by_2.py `- contains a function that returns a new dictionary with all values multiplied by 2
+* **Prototype:** `def multiply_by_2(a_dictionary):`
+* All values are assumed to be integers
+* Returns a new dictionary
+* Not allowed to import new modules
+
+#### 10. Best score
+
+* **File:** `10-best_score.py `- contains a function that returns a key with the biggest integer value.
+* **Prototype:** `def best_score(a_dictionary):`
+* All values are assumed to be integers
+* If no score found, return `None`
+* All students are assumed to have a different score (i.e. no two students have the same score)
+* Not allowed to import new modules
