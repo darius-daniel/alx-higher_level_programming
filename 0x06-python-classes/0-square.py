@@ -3,6 +3,7 @@
 """An Empty class that does nothing
 """
 
+
 class Square:
     """Square: Defines a square
     """

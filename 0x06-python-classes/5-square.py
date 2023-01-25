@@ -3,6 +3,7 @@
 """This python script build upon previous versions of the same Class
 """
 
+
 class Square:
     """Defines a square
     """

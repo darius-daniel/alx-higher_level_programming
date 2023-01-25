@@ -3,6 +3,7 @@
 """This python script build upon previous versions of the same Class
 """
 
+
 class Square:
     """Defines a square
     """
@@ -22,7 +23,7 @@ class Square:
             self.__size = size
 
         if type(position) != tuple or len(position) != 2\
-                                        or position[0] < 0 or position[1] < 0:
+                or position[0] < 0 or position[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = position
@@ -82,13 +83,13 @@ class Square:
         """Retrieves the value of the position attribute
         """
         return self.__position
-    
+
     @position.setter
     def position(self, value):
         """Sets the value of position to value
         """
         if type(value) != tuple or len(value) != 2\
-                                        or value[0] < 0 or value[1] < 0:
+                or value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = value
