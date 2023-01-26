@@ -7,7 +7,7 @@
 class Square:
     """Defines a square
     """
-    def __init__(self, size=0, position=0):
+    def __init__(self, size=0, position=(0, 0)):
         """ Initializes the class
 
         Args:
@@ -15,18 +15,8 @@ class Square:
           position: a tuple of two integers that represent the coordinates
                     of the square
         """
-        if type(size) is not int:
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
-
-        if type(position) != tuple or len(position) != 2\
-                or position[0] < 0 or position[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        else:
-            self.__position = position
+        self.size = size
+        self.position = position
 
     def area(self):
         """Computes the current square area
@@ -71,10 +61,10 @@ class Square:
         if (self.size == 0):
             print()
         else:
-            for i in range(self.__position[1]):
-                for j in range(self.__position[0]):
+            for h in range(self.size):
+                for j in range(self.position[0]):
                     print(" ", end='')
-                for k in range(self.__size):
+                for k in range(self.size):
                     print("#", end='')
                 print()
 
