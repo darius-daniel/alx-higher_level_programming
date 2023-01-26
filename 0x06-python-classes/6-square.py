@@ -70,6 +70,8 @@ class Square:
                     print("#", end='')
                 print()
 
+            print()
+
     @property
     def position(self):
         """Retrieves the value of the position attribute
