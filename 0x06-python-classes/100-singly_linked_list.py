@@ -76,7 +76,8 @@ class SinglyLinkedList:
 
         while current is not None:
             return_value += str(current.data)
-            return_value += '\n'
+            if current.next_node is not None:
+                return_value += '\n'
             current = current.next_node
 
         return return_value
