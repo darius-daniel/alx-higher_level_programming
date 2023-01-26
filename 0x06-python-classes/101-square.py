@@ -98,10 +98,10 @@ class Square:
         Args:
             self: the current instance of this class
         """
+        return_str = ""
         if (self.size == 0):
-            print()
+            return_str += ""
         else:
-            return_str = ""
             return_str += '\n' * self.position[1]
             for i in range(self.size):
                 return_str += " " * self.position[0]
