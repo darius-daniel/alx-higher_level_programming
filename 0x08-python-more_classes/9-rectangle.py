@@ -154,9 +154,4 @@ class Rectangle:
             cls: the current object class
             size: size of the new instance
         """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-
         return cls(size, size)
