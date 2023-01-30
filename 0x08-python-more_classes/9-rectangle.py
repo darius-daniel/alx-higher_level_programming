@@ -154,4 +154,6 @@ class Rectangle:
             cls: the current object class
             size: size of the new instance
         """
-        return cls(size, size)
+        cls.width = size
+        cls.height = size
+        return cls(cls.width, cls.height)
