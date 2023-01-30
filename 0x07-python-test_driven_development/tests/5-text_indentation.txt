@@ -1,0 +1,11 @@
+Import the function from the module 5-text_indentation.py
+  >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+===========================================================
+If text is a string:
+  >>> text_indentation("I am here. This is why I came: Didn't I tell you?")
+  I am here.
+  \
+  This is why I came:
+  \
+  Didn't I tell you?

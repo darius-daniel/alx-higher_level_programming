@@ -26,20 +26,21 @@ def matrix_divided(matrix, div):
     elif div < 0:
         raise ZeroDivisionError("division by zero")
 
-    temp = list(filter(lambda item: len(item) == len(matrix[0]), matrix))
+    msg = "matrix must be a matrix (list of lists) of integers/floats"
+    for row in matrix:
+        if type(row) != list:
+            raise TypeError(msg)
 
+    temp = list(filter(lambda item: len(item) == len(matrix[0]), matrix))
     if len(temp) != len(matrix):
         raise TypeError("Each row of the matrix must have the same size")
 
     new_matrix = []
-    i = 0    
     for row in matrix:
         sub_list = []
         for num in row:
             if type(num) != float and type(num) != int:
-                raise\
-                TypeError("matrix must be a matrix (list of lists)\
-                           of integers/floats")
+                raise TypeError(msg)
             else:
                 sub_list.append(float("{:.2f}".format(num / div)))
 
