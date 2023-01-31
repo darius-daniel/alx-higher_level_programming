@@ -5,42 +5,76 @@ import sys
 chessboard.
 """
 if len(sys.argv) != 2:
-    print("Usage: nqueens N")
-    sys.exit(1)
-elif not isinstance(sys.argv[1], int):
-    print("N must be a number")
-    sys.exit(1)
-elif sys.arg[1] < 4:
-    print("N must be at least 4")
+    sys.stderr.write("Usage: nqueens N\n")
     sys.exit(1)
 
-queens_on_board = 0
-N = sys.argv[1]
+try:
+    N = int(sys.argv[1])
+except ValueError:
+    sys.stderr.write("N must be a number\n")
+    sys.exit(1)
 
-def isSafe(board, row, col):
-    """Checks if the square on (row, col) are under attack by another queen on the board
+if N < 4:
+    sys.stderr.write("N must be at least 4\n")
+    sys.exit(1)
 
-    Args:
-        board: the NxN board
-        row: the row number of the square (counting starts from zero)
-        col: the column number of the square (counting starts from zero)
 
-    Returns:
-        bool: True if not under attack, False if under attack
-    """
-    is_safe = True
-    ## Check if there is already a queen on the row and column:
-    
-    # Check if another queen is already on column 'col'
-    for r in range(N):
-        if board[r][col] == 'Q':
-            is_safe = False
-            break
-    # Check if another queen is already on row 'row'
-    for c in range(N):
-        if board[row][c] == 'Q':
-            is_safe = False
-            break
+output = []
 
-            
+def solveNQueens(l, excluded):
+    r = len(l)
+    if r < N:
+        for c in range(N):
+            if (r, c) in excluded:
+                continue
 
+            ex = set()
+            tmp = ('.'*c) + "Q" + ("." * (N - c - 1))
+
+            for r1 in range(r, N):
+                ex.add((r1, c))
+
+            r2 = r3 = r
+            c2 = c3 = c
+
+            while c2 < N:
+                r2 += 1
+                c2 += 1
+                ex.add((r2, c2))
+
+            while c3 > 0:
+                r3 += 1
+                c3 -= 1
+                ex.add((r3, c3))
+
+            solveNQueens(l + [tmp], excluded | ex)
+    else:
+        output.append(l)
+
+def convertOutput():
+    result = []
+    i = 0
+    while i < len(output):
+        r = 0
+        sub_list = []
+        for string in output[i]:
+            c = 0
+            for char in string:
+                if char == 'Q':
+                    sub_list.append([r, c])
+                    break
+                c += 1
+            r += 1
+        result.append(sub_list)
+        i += 1
+
+    return result
+
+def showOutput():
+    for row in output:
+        print(row)
+
+
+solveNQueens([], set())
+output = convertOutput()
+showOutput()

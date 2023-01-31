@@ -19,8 +19,8 @@ class Rectangle:
             width: the width of the current instance (defaults to 0)
             height: the height of the current instance (also defaults to zero)
         """
-        self.height = height
         self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
 
     @property
@@ -153,6 +153,6 @@ class Rectangle:
             size: size of the new instance
 
         Returns:
-            Rectangle: a new instanc of the Rectangle class
+            Rectangle: a new instance of the Rectangle class
         """
         return cls(size, size)
