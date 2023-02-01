@@ -17,12 +17,14 @@ def text_indentation(text):
     special_chars = ".?:"
     i = 0
     for ch in text:
-        if i >= len(text) - 1:
+        if i > len(text) - 1:
             break
         print(text[i], end='')
-        if text[i] in special_chars:
+        if text[i] in special_chars and i < len(text) - 1:
             print("\n")
-            if text[i + 1] == ' ':
+            if i == len(text) - 1:
+                break
+            elif text[i + 1] == ' ':
                 i += 1
         i += 1
     print()

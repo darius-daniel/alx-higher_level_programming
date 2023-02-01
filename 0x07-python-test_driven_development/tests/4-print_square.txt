@@ -23,3 +23,17 @@ If no argument is passed into print_square():
   Traceback (most recent call last):
     ...
   TypeError: print_square() missing 1 required positional argument: 'size'
+
+===========================================================
+If None passed into print_square():
+	>>> print_square(None)
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+
+===========================================================
+If size is less than 0
+	>>> print_square(-6)
+	Traceback (most recent call last):
+		...
+	ValueError: size must be >= 0

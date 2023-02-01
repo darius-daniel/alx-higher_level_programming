@@ -79,4 +79,25 @@ If either a or b (or both) is None
 	TypeError: a must be an integer
 
 	++++++++++++++++++++++++++++++++++++++++++++
-	===========================================================
+===========================================================
+If either a or b (or both) is NaN:
+	>>> a = float('NaN')
+	>>> print(add_integer(a))
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer
+
+=====================================================================
+If either a or b (or both) is 'inf':
+	>>> a = float('inf')
+	>>> print(add_integer(a, 12))
+	Traceback (most recent call last):
+		...
+	OverflowError: cannot convert float infinity to integer
+
+	++++++++++++++++++++++++++++++++++++++++++++++++++
+	>>> b = float('-inf')
+	>>> print(add_integer(10, b))
+	Traceback (most recent call last):
+		...
+	OverflowError: cannot convert float infinity to integer

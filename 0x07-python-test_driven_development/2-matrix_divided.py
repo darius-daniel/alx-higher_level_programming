@@ -15,15 +15,15 @@ def matrix_divided(matrix, div):
 
     Args:
         matrix: a list containing lists of integers or floats.
-        div: the number by which all the elements of the matrix will be divided
-        by. It must be a number (integer or float)
+        div: the number by which all the elements of the matrix will be
+        divided by. It must be a number (integer or float)
 
     Returns:
         list: a new matrix
     """
     if type(div) != float and type(div) != int:
         raise TypeError("div must be a number")
-    elif div < 0:
+    elif div == 0:
         raise ZeroDivisionError("division by zero")
 
     msg = "matrix must be a matrix (list of lists) of integers/floats"

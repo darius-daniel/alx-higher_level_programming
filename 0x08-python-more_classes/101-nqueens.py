@@ -4,6 +4,8 @@ import sys
 """Solve the N queens problem by placing N non-attacking queens on an NxN
 chessboard.
 """
+
+
 if len(sys.argv) != 2:
     sys.stderr.write("Usage: nqueens N\n")
     sys.exit(1)
@@ -21,8 +23,9 @@ if N < 4:
 
 output = []
 
-def solveNQueens(l, excluded):
-    r = len(l)
+
+def solveNQueens(a_list, excluded):
+    r = len(a_list)
     if r < N:
         for c in range(N):
             if (r, c) in excluded:
@@ -47,9 +50,10 @@ def solveNQueens(l, excluded):
                 c3 -= 1
                 ex.add((r3, c3))
 
-            solveNQueens(l + [tmp], excluded | ex)
+            solveNQueens(a_list + [tmp], excluded | ex)
     else:
-        output.append(l)
+        output.append(a_list)
+
 
 def convertOutput():
     result = []
@@ -69,6 +73,7 @@ def convertOutput():
         i += 1
 
     return result
+
 
 def showOutput():
     for row in output:

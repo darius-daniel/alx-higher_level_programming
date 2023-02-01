@@ -8,11 +8,16 @@ Prototype: def print_square(size):
 
 
 def print_square(size):
+    """Prints a square with the character '#'
+
+    Args:
+        size: the length of the sides of the square
+    """
     if type(size) != int:
         raise TypeError("size must be an integer")
 
     if size < 0:
-        raise TypeError("size must be >= 0")
+        raise ValueError("size must be >= 0")
 
     i = 0
     while (i < size):

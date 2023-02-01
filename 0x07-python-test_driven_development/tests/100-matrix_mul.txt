@@ -1,0 +1,32 @@
+Importing the function, matrix_mul, from 100-matrix_mul.py
+	>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+===========================================================
+If input is valid:
+	>>> print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+	[[7, 10], [15, 22]]
+
+	++++++++++++++++++++++++++++++++++++++++++++++++++++
+	>>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+	[[13, 16]]
+
+============================================================
+If m_a or m_b or both or not lists:
+	>>> print(matrix_mul("[1, 2] [3, 4]", [[1, 2], [3, 4]]))
+	Traceback (most recent call last):
+		...
+	TypeError: m_a must be a list
+
+	++++++++++++++++++++++++++++++++++++++++++++++++++++
+	>>> print(matrix_mul([["one", 2], [3, 4]], [[3, 4], [5, 6]]))
+	Traceback (most recent call last):
+		...
+	TypeError: m_a should contain only integers or floats
+
+	++++++++++++++++++++++++++++++++++++++++++++++++++++
+	>>> print(matrix_mul([[1, 2], [3, 4]], None))
+	Traceback (most recent call last):
+		...
+	TypeError: m_b must be a list
+
+===========================================================

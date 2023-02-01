@@ -1,11 +1,38 @@
 Import the function from the module 5-text_indentation.py
-  >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
 
 ===========================================================
 If text is a string:
-  >>> text_indentation("I am here. This is why I came: Didn't I tell you?")
-  I am here.
-  \
-  This is why I came:
-  \
-  Didn't I tell you?
+    >>> text_indentation("I am here. This is why I came: Didn't I tell you?")
+    I am here.
+    <BLANKLINE>
+    This is why I came:
+    <BLANKLINE>
+    Didn't I tell you?
+
+===========================================================
+If no text is passed into text_indentation:
+	>>> text_indentation()
+	Traceback (most recent call last):
+			...
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+===========================================================
+If text is a number:
+	>>> text_indentation(100)
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
+
+	+++++++++++++++++++++++++++++++++++
+	>>> text_indentation(0.5)
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
+
+============================================================
+If text is a list or tuple:
+	>>> text_indentation(['h', 'o', 'l', 'b', 'er', 'ton'])
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
