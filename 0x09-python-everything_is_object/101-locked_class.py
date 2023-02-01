@@ -7,11 +7,12 @@ atrribute is called first_name
 
 
 class LockedClass:
-    """Defines the locked class
+    """Defines the locked class that does not allow dynamic instance attribute
+    creation
     """
     __slots__ = ["first_name"]
 
     def __init__(self):
-        """Does nothing
+        """Does nothing in particular
         """
         pass
