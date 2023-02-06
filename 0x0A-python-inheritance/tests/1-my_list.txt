@@ -1,0 +1,39 @@
+Importing the class MyList from 1-my_list:
+    >>> MyList = __import__('1-my_list').MyList
+
+=================================================================
+If an extra positional argument is passed into MyList:
+    >>> my_list = MyList(4)
+    Traceback (most recent call last):
+        ...
+    TypeError: 'int' object is not iterable
+
+=================================================================
+If Nothing is passed into MyList when the new instance of MyList is created:
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(4)
+    >>> my_list.append(5)
+    >>> print(my_list)
+    [1, 2, 3, 4, 5]
+
+==================================================================
+Check if my_list is an instance of list or a subclass of list:
+    >>> type(my_list) == MyList
+    True
+
+    ++++++++++++++++++++++++++++++++++++++
+    >>> issubclass(my_list, list)
+    Traceback (most recent call last):
+        ...
+    TypeError: issubclass() arg 1 must be a class
+
+    +++++++++++++++++++++++++++++++++++++++
+    >>> isinstance(my_list, list)
+    True
+
+    +++++++++++++++++++++++++++++++++++++++
+    >>> issubclass(MyList, list)
+    True

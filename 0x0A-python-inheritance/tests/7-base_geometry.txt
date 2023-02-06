@@ -1,0 +1,39 @@
+Importing the class BaseGeometry
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+===========================================================
+Create new instance of the BaseGeometry class
+	>>> bg = BaseGeometry()
+
+===========================================================
+Try Various inputs and types for name and value
+	>>> bg.integer_validator("my_int", 12)
+	>>> bg.integer_validator("width", 89)
+
+	++++++++++++++++++++++++++++++++++++++
+	>>> bg.integer_validator("", 12)
+	>>> bg.integer_validator(None, 89)
+
+	++++++++++++++++++++++++++++++++++++++
+	>>> bg.integer_validator("age", '12')
+	Traceback (most recent call last):
+		...
+	TypeError: age must be an integer
+
+	+++++++++++++++++++++++++++++++++++++++
+	>>> bg.integer_validator('attr', [89])
+	Traceback (most recent call last):
+		...
+	TypeError: attr must be an integer
+
+	+++++++++++++++++++++++++++++++++++++++
+	>>> bg.integer_validator("pi", 3.142)
+	Traceback (most recent call last):
+		...
+	TypeError: pi must be an integer
+
+	+++++++++++++++++++++++++++++++++++++++
+	>>> bg.integer_validator("abs_zero", -273)
+	Traceback (most recent call last):
+		...
+	ValueError: abs_zero must be greater than 0
