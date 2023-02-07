@@ -43,3 +43,14 @@ Try Various inputs and types for name and value
 	Traceback (most recent call last):
 		...
 	TypeError: bg.integer_validator() missing 2 required positional arguments: "name" and "value"
+
+	+++++++++++++++++++++++++++++++++++++++
+	>> bg.integer_validator(20)
+	Traceback (most recent call last):
+		...
+
+	+++++++++++++++++++++++++++++++++++++++
+	>> bg.area()
+	Traceback (most recent call last):
+		...
+	Exception: area() is not implemented
