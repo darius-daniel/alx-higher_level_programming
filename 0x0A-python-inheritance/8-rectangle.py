@@ -36,8 +36,19 @@ class Rectangle(BaseGeometry):
             width: the width of the rectangle (must be an integer > 0)
             height: the height of the rectangle (must be an integer > 0)
         """
-        self.integer_validator('width', width)
-        self.integer_validator('height', height)
+        try:
+            self.integer_validator('width', width)
+        except TypeError as te:
+            raise TypeError(te)
+        except ValueError as ve:
+            raise ValueError(ve)
+
+        try:
+            self.integer_validator('height', height)
+        except TypeError as te:
+            raise TypeError(te)
+        except ValueError as ve:
+            raise ValueError(ve)
 
         self.__width = width
         self.__height = height
