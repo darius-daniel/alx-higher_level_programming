@@ -3,10 +3,10 @@
 """A class that inherits from Rectangle in 9-rectangle.py"""
 
 
-BaseGeometry = __import__('9-rectangle').Rectangle
+Rectangle = __import__('9-rectangle').Rectangle
 
 
-class Square(BaseGeometry):
+class Square(Rectangle):
     """Represents a square
     """
 
@@ -17,7 +17,7 @@ class Square(BaseGeometry):
             size: the length of the sides of the square
                   (must be an integer > 0)
         """
-        self.integer_validator('size', width)
+        self.integer_validator('size', size)
 
         self.__size = size
 
