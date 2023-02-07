@@ -19,6 +19,17 @@ If Nothing is passed into MyList when the new instance of MyList is created:
     >>> print(my_list)
     [1, 2, 3, 4, 5]
 
+=================================================================
+Test print_sorted() with positive ints:
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(10)
+    >>> my_list.append(8)
+    >>> my_list.append(14)
+    >>> my_list.append(4)
+    >>> my_list.print_sorted()
+    [1, 4, 8, 10, 14]
+
 ==================================================================
 Check if my_list is an instance of list or a subclass of list:
     >>> type(my_list) == MyList
