@@ -36,4 +36,4 @@ class Rectangle(BaseGeometry):
 
     def __repr__(self):
         """Prints the formal string representation of the class"""
-        print("[Rectangle] {:d}/{:d}".format(self.__width, self.__height))
+        return "[Rectangle] {:d}/{:d}".format(self.__width, self.__height)
