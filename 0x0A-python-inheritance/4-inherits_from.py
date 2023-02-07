@@ -24,6 +24,6 @@ def inherits_from(obj, a_class):
         bool: True if @obj is an instance of a class that inherited (directly
         or indirectly) from the specified class; otherwise False
     """
-    if type(a_class) != type:
-        raise TypeError("a_class must be a class")
+    if type(obj) is a_class:
+        return False
     return issubclass(type(obj), a_class)
