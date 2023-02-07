@@ -30,6 +30,17 @@ Test print_sorted() with positive unique integers:
     >>> my_list.print_sorted()
     [1, 4, 8, 10, 14]
 
+================================================================
+Test print_sorted() with combination of -ve and +ve integers:
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(3)
+    >>> my_list.append(-8)
+    >>> my_list.append(7)
+    >>> my_list.append(0)
+    >>> my_list.print_sorted()
+    [-8, 0, 1, 3, 7]
+
 =================================================================
 Test print_sorted() with repeated positive integers:
     >>> my_list = MyList()
