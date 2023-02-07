@@ -11,6 +11,8 @@ If an extra positional argument is passed into MyList:
 =================================================================
 If Nothing is passed into MyList when the new instance of MyList is created:
     >>> my_list = MyList()
+    >>> my_list.print_sorted()
+    []
     >>> my_list.append(1)
     >>> my_list.append(2)
     >>> my_list.append(3)
