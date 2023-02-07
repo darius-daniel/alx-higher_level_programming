@@ -59,28 +59,28 @@ Try Various inputs and types for name and value
 Trying to pass a non-integer argument:
     >>> bg.integer_validator("name", "5")
     Traceback (most recent call last):
-              ...
+        ...
     TypeError: name must be an integer
 
 ================================================================
 Trying to pass a boolean value:
     >>> bg.integer_validator("name", True)
     Traceback (most recent call last):
-              ...
+        ...
     TypeError: name must be an integer
 
 ================================================================
 Trying to pass a negative value:
     >>> bg.integer_validator("name", -5)
     Traceback (most recent call last):
-              ...
+        ...
     ValueError: name must be greater than 0
 
 ================================================================
 Trying to pass a zero value:
     >>> bg.integer_validator("name", 0)
     Traceback (most recent call last):
-              ...
+        ...
     ValueError: name must be greater than 0
 
 ================================================================
@@ -91,57 +91,56 @@ Passing a positive value:
 Passing one argument to integer_validator:
     >>> bg.integer_validator("name")
     Traceback (most recent call last):
-              ...
+        ...
 
 ================================================================
 Integer_validator with no arguments:
     >>> bg.integer_validator()
     Traceback (most recent call last):
-              ...
+        ...
 
 ================================================================
 Passing three arguments to integer_validator:
     >>> bg.integer_validator("name", 1, 2)
     Traceback (most recent call last):
-              ...
+        ...
 
 ================================================================
 Passing one argument to area method:
     >>> bg.area(5)
     Traceback (most recent call last):
-              ...
+        ...
 
 ================================================================
 Passing two arguments to area method:
     >>> bg.area(5, 5)
     Traceback (most recent call last):
-              ...
+        ...
 
 ================================================================
 Passing tuple to method:
     >>> bg.integer_validator("age", (4,))
     Traceback (most recent call last):
-              ...
+        ...
     TypeError: age must be an integer
 
 ================================================================
 Passing list to method:
     >>> bg.integer_validator("age", [3])
     Traceback (most recent call last):
-              ...
+        ...
     TypeError: age must be an integer
 
 ================================================================
-Passing dict to method
-    >>> bg = BaseGeometry()
+Passing dict to method:
     >>> bg.integer_validator("age", {3, 4})
     Traceback (most recent call last):
-              ...
+        ...
     TypeError: age must be an integer
 
 ================================================================
 Passing None to method:
     >>> bg.integer_validator("age", None)
     Traceback (most recent call last):
-              ...
+        ...
     TypeError: age must be an integer
