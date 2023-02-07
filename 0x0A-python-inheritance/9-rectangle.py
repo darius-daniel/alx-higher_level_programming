@@ -25,7 +25,7 @@ class Rectangle(BaseGeometry):
 
     def area(self):
         """Returns the area of the rectangle by"""
-        return self.__width * self__height
+        return self.__width * self.__height
 
     def __str__(self):
         """Prints the formal string representation of the class"""
