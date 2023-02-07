@@ -11,8 +11,6 @@ If an extra positional argument is passed into MyList:
 =================================================================
 If Nothing is passed into MyList when the new instance of MyList is created:
     >>> my_list = MyList()
-    >>> my_list.print_sorted()
-    []
     >>> my_list.append(1)
     >>> my_list.append(2)
     >>> my_list.append(3)
@@ -20,6 +18,14 @@ If Nothing is passed into MyList when the new instance of MyList is created:
     >>> my_list.append(5)
     >>> print(my_list)
     [1, 2, 3, 4, 5]
+
+================================================================
+Print and sort an empty list:
+    >>> my_list = MyList()
+    >>>print(my_list)
+    []
+    >>> my_list.print_sorted()
+    []
 
 =================================================================
 Test print_sorted() with positive unique integers:
