@@ -8,6 +8,8 @@ Prototype: def add_attribute(obj, name, value):
     name: the name of the attribute
     value: the value of the attribute
 """
+
+
 def add_attribute(obj, name, value):
     """Adds a new attribute to an object
 
