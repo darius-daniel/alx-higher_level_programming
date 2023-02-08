@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-import json
-
 """Contains a function that returns a python data structure from
 the JSON string
 
 Prototype: def from_json_string(my_str):
     my_str: a string
 """
+import json
 
 
 def from_json_string(my_str):
