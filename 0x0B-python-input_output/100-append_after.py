@@ -11,7 +11,7 @@ Prototype: def append_after(filename="", search_string="", new_string=""):
 
 
 def append_after(filename="", search_string="", new_string=""):
-    """Contains a function that inserts a line of text to a file, after each 
+    """Contains a function that inserts a line of text to a file, after each
     line containing a specific string
 
     Args:
