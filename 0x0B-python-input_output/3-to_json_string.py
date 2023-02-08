@@ -14,6 +14,9 @@ def to_json_string(my_obj):
     Args:
         my_obj: a python object
 
+    Raises:
+        Exception: if @my_obj can not be serialized
+
     Returns:
         str: the JSON representation of the object
     """
