@@ -9,7 +9,8 @@ Prototype: def write_file(filename="", text="")
 
 
 def write_file(filename="", text=""):
-    """Writes a string to a text file and returns the number of characters written
+    """Writes a string to a text file and returns the number of characters
+    written
 
     Args:
         filename: a string containing the name and/or name of the file
