@@ -25,8 +25,8 @@ class Student:
         Args:
             self: the current instance of the Student class
             attrs: if @attrs is a list of strings, only attribute names in
-                   this list must be retrieved. If otherwise, all attributes must
-                   be retrieved.
+                   this list must be retrieved. If otherwise, all attributes
+                   must be retrieved.
         """
         all_attrs = self.__dict__.copy()
 
