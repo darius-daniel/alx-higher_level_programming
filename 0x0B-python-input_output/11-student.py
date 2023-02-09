@@ -3,6 +3,7 @@
 """Contains a class that defines a student (based on 10-student.py)
 """
 
+
 class Student:
     """Represents a student
     """
