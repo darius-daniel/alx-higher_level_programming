@@ -3,11 +3,28 @@
 """
 import unittest
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class TestAttributes(unittest.TestCase):
     """Performs unit testing for an instance of the Rectangle class
     """
+    def test_id(self):
+        """Resets the value of the private Base class attribute
+        """
+        Base.__nb_objects = 0
+        rect_1 = Rectangle(1, 2)
+        rect_2 = Rectangle(2, 3)
+        rect_3 = Rectangle(3, 4)
+        rect_4 = Rectangle(4, 5)
+        rect_5 = Rectangle(5, 6, 1, 1, 10)
+
+        self.assertEqual(rect_1.id, 2)
+        self.assertEqual(rect_2.id, 3)
+        self.assertEqual(rect_3.id, 4)
+        self.assertEqual(rect_4.id, 5)
+        self.assertEqual(rect_5.id, 10)
+
     def test_width(self):
         """Perform tests on the width attribute of the Rectangle instance
         """
@@ -20,7 +37,10 @@ class TestAttributes(unittest.TestCase):
         self.assertEqual(2, rect.height)
         self.assertEqual(0, rect.x)
         self.assertEqual(0, rect.y)
-        self.assertEqual(2, rect.id)
+
+        rect = Rectangle(2, 4)
+        rect_2 = Rectangle(2, 4)
+        self.assertEqual(False, rect is rect_2)
 
         with self.assertRaises(TypeError):
             rect.width = None
@@ -222,3 +242,88 @@ class TestMethods(unittest.TestCase):
             rect.area(int(float('inf')))
         with self.assertRaises(OverflowError):
             rect.area(int(float('-inf')))
+
+    def test_display(self):
+        """Performs unit tests on the display method of the Rectagle class
+        """
+        rect = Rectangle(5, 3)
+        self.assertEqual(rect.display(), None)
+
+        rect.x = 2
+        rect.y = 1
+
+        self.assertEqual(None, rect.display())
+        self.assertEqual(None, Rectangle(20, 5, 4, 0).display())
+        self.assertEqual(None, Rectangle(4, 4, 1, 3).display())
+        self.assertEqual(None, Rectangle(3, 8).display())
+
+    def test_update(self):
+        """Unit tests for the update method of the Rectangle class
+        """
+        Base.__nb_objects = 0
+
+        rect = Rectangle(2, 6)
+
+        # pass nothing into update
+        self.assertEqual(rect.update(), None)
+        self.assertEqual(16, rect.id)
+        self.assertEqual(2, rect.width)
+        self.assertEqual(6, rect.height)
+        self.assertEqual(0, rect.x)
+        self.assertEqual(0, rect.y)
+
+        # update the attribute id
+        self.assertEqual(rect.update(4), None)
+        self.assertEqual(4, rect.id)
+        self.assertEqual(2, rect.width)
+        self.assertEqual(6, rect.height)
+        self.assertEqual(0, rect.x)
+        self.assertEqual(0, rect.y)
+
+        # update the attributes id, width
+        self.assertEqual(rect.update(4, 10), None)
+        self.assertEqual(4, rect.id)
+        self.assertEqual(10, rect.width)
+        self.assertEqual(6, rect.height)
+        self.assertEqual(0, rect.x)
+        self.assertEqual(0, rect.y)
+
+        # update the attributes id, width, height
+        self.assertEqual(rect.update(4, 10, 3), None)
+        self.assertEqual(4, rect.id)
+        self.assertEqual(10, rect.width)
+        self.assertEqual(3, rect.height)
+        self.assertEqual(0, rect.x)
+        self.assertEqual(0, rect.y)
+
+        # update the attributes id, width, height, x
+        self.assertEqual(rect.update(4, 10, 5, 3), None)
+        self.assertEqual(4, rect.id)
+        self.assertEqual(10, rect.width)
+        self.assertEqual(5, rect.height)
+        self.assertEqual(3, rect.x)
+        self.assertEqual(0, rect.y)
+
+        # update the attributes id, width, height, x, y
+        self.assertEqual(rect.update(4, 7, 5, 3, 2), None)
+        self.assertEqual(4, rect.id)
+        self.assertEqual(7, rect.width)
+        self.assertEqual(5, rect.height)
+        self.assertEqual(3, rect.x)
+        self.assertEqual(2, rect.y)
+
+        # update the attributes id, width, height, x, plus one extra argument
+        self.assertEqual(rect.update(4, 12, 8, 3, 1, 5), None)
+        self.assertEqual(4, rect.id)
+        self.assertEqual(12, rect.width)
+        self.assertEqual(8, rect.height)
+        self.assertEqual(3, rect.x)
+        self.assertEqual(1, rect.y)
+
+    def test_to_dictionary(self):
+        """Unit test for the to_dictionary method
+        """
+        rect = Rectangle(5, 3)
+
+        print(rect.id)
+        self.assertEqual(15, rect.id)

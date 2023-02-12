@@ -119,10 +119,52 @@ class Rectangle(Base):
     def display(self):
         """Prints to stdout the Rectangle instance with the character '#'
         """
-        print('\n' * (self.y - 1))
+        output = ""
+        if self.y > 0:
+            output += ('\n' * self.y)
+
         for i in range(self.height):
-            print(" " * self.x, end="")
-            print("{}".format('#' * self.width))
+            output += " " * self.x
+            output += ('#' * self.width) + "\n"
+
+        print(output)
+
+    def update(self, *args, **kwargs):
+        """Updates the attributes of the Rectangle instance using variable
+        number of arguments
+
+        Args:
+            *args: a positional argument collector
+            **kwargs: key-only argument collector
+        """
+        if args is not None and len(args) > 0:
+            attrs = ['id', 'width', 'height', 'x', 'y']
+            last_idx = len(attrs) - 1
+
+            i = 0
+            for arg in args:
+                if i <= last_idx:
+                    setattr(self, attrs[i], arg)
+                i += 1
+        else:
+            attrs = ['id', 'width', 'height', 'x', 'y']
+            for key, value in kwargs.items():
+                if key in attrs:
+                    setattr(self, key, value)
+
+    def to_dictionary(self):
+        """Returns the dictionary representation of a Rectangle
+        """
+        rect_dict = {}
+        attrs = ['id', 'width', 'height', 'x', 'y']
+
+        for attr in attrs:
+            for key in self.__dict__.keys():
+                if attr in key.split("__"):
+                    rect_dict[attr] = self.__dict__[key]
+        
+        return rect_dict
+
 
     def __str__(self):
         """Print the string representation of the Rectangle instance
