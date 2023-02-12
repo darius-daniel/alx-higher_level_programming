@@ -46,13 +46,23 @@ class Base:
             for obj in list_objs:
                 temp_dict = {}
                 for key in obj.__dict__.keys():
+                    temp_key = key
                     if key != "id":
                         temp_key = key.split("__")[1]
-                    else:
-                        temp_key = "id"
+
                     temp_dict[temp_key] = obj.__dict__[key]
                 obj_list.append(temp_dict)
 
-            with open("{}.json".format(cls.__name__), "w") as file:
-                file.write(Base.to_json_string(obj_list))
+        with open("{}.json".format(cls.__name__), "w") as file:
+            json.dump(Base.to_json_string(obj_list))
 
+    @staticmethod
+    def from_json_string(json_string):
+        """Returns the list of the JSON string representation json_string
+
+        Args:
+            json_string: (list)
+        """
+        if not json_string:
+            return []
+        return json.loads(json_string)

@@ -52,14 +52,14 @@ class Square(Rectangle):
                     setattr(self, attrs[i], arg)
                 i += 1
         else:
-            attrs = ["id", "size", "x", "y"]
+            attrs = ("id", "size", "x", "y")
             for key,value in kwargs.items():
                 if key in attrs:
                     setattr(self, key, value)
 
     def to_dictionary(self):
         sq_dict = {}
-        attrs = ["id", "size", "x", "y"]
+        attrs = ("id", "size", "x", "y")
         print(self.__dict__)
         for attr in attrs:
             for key in self.__dict__.keys():

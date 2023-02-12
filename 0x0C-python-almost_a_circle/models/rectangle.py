@@ -138,7 +138,7 @@ class Rectangle(Base):
             **kwargs: key-only argument collector
         """
         if args is not None and len(args) > 0:
-            attrs = ['id', 'width', 'height', 'x', 'y']
+            attrs = ('id', 'width', 'height', 'x', 'y')
             last_idx = len(attrs) - 1
 
             i = 0
@@ -147,7 +147,7 @@ class Rectangle(Base):
                     setattr(self, attrs[i], arg)
                 i += 1
         else:
-            attrs = ['id', 'width', 'height', 'x', 'y']
+            attrs = ('id', 'width', 'height', 'x', 'y')
             for key, value in kwargs.items():
                 if key in attrs:
                     setattr(self, key, value)
@@ -156,13 +156,13 @@ class Rectangle(Base):
         """Returns the dictionary representation of a Rectangle
         """
         rect_dict = {}
-        attrs = ['id', 'width', 'height', 'x', 'y']
+        attrs = ('id', 'width', 'height', 'x', 'y')
 
         for attr in attrs:
             for key in self.__dict__.keys():
                 if attr in key.split("__"):
                     rect_dict[attr] = self.__dict__[key]
-        
+
         return rect_dict
 
 
