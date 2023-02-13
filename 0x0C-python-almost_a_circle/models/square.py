@@ -42,36 +42,40 @@ class Square(Rectangle):
             *args: a positional argument collector
             **kwargs: a key-word argument collector
         """
-        if args:
-            attrs = ("id", "size", "x", "y")
-
+        attrs = ("id", "size", "x", "y")
+        if args is not None:
             i = 0
             last_idx = len(attrs) - 1
             for arg in args:
-                if (i <= last_idx):
+                if i <= last_idx:
                     setattr(self, attrs[i], arg)
                 i += 1
         else:
-            attrs = ("id", "size", "x", "y")
-            for key,value in kwargs.items():
+            for key, value in kwargs.items():
                 if key in attrs:
-                    setattr(self, key, value)
+                    if key == "size":
+                        setattr(self, "width", value)
+                        setattr(self, "height", value)
+                    else:
+                        setattr(self, key, value)
 
     def to_dictionary(self):
         sq_dict = {}
         attrs = ("id", "size", "x", "y")
-        print(self.__dict__)
         for attr in attrs:
             for key in self.__dict__.keys():
                 toks = key.split("__")
                 if attr in toks:
                     sq_dict[attr] = self.__dict__[key]
                 elif "height" in toks or "width" in toks:
-                    sq_dict["size"] = self.__dict__[key]
+                    sq_dict["size"] = getattr(self, key)
 
         return sq_dict
 
     def __str__(self):
         """[Square] (<id>) <x>/<y> - <size> - in our case, width or height"""
-        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id, self.x,
-                                                            self.y, self.size)
+        sq = "[Square]"
+        _id = "({:d})".format(self.id)
+        x_and_y = "{:d}/{:d} - ".format(self.x, self.y)
+        size = "{:d}".format(self.size)
+        return sq + _id + x_and_y + size

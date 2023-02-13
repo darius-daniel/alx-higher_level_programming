@@ -339,7 +339,8 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertEqual(rect.height, 35)
 
         # ===========================================================
-        # Testing behaviour in names of keyword-only arguments incorrectly typed
+        # Testing behaviour in names of keyword-only arguments incorrectly
+        # typed
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         # If 'y' is incorrectly spelled
@@ -351,7 +352,7 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertEqual(rect.height, 15)
         with self.assertRaises(AttributeError):
             print(rect.Y)
-        
+
         # if 'id' was incorrectly spelled
         rect.update(y=2, di=55, width=3, x=20, height=4)
         self.assertEqual(rect.id, 98)

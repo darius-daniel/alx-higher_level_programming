@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""Unit tests for the Square clss
+"""Unit tests for the Square class
 """
 import unittest
 from models.square import Square
@@ -8,7 +8,7 @@ from models.base import Base
 
 
 class TestSquareAttributes(unittest.TestCase):
-    """Performs Unittests on the attributes of a Square instance"""
+    """Performs unit tests on the attributes of a Square instance"""
     def test_square_size(self):
         """Tests on the size attribute of the square"""
         with self.assertRaises(TypeError):
@@ -209,7 +209,8 @@ class TestSquareMethods(unittest.TestCase):
             print(sq.q)
 
         # ===========================================================
-        # Testing behaviour in names of keyword-only arguments incorrectly typed
+        # Testing behaviour in names of keyword-only arguments incorrectly
+        # typed
         # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         # If 'y' is incorrectly spelled
@@ -220,7 +221,7 @@ class TestSquareMethods(unittest.TestCase):
         self.assertEqual(sq.size, 18)
         with self.assertRaises(AttributeError):
             print(sq.Y)
-            
+
         # if 'id' was incorrectly spelled
         sq.update(y=2, di=55, size=3, x=20)
         self.assertEqual(sq.id, 98)

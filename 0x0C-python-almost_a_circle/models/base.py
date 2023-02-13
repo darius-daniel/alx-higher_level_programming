@@ -4,6 +4,7 @@ the project. It's goal is to manage id attributes in all subsequent classes
 in order to avoid duplicating the same code (and by extension the same bugs)
 """
 import json
+import os
 
 
 class Base:
@@ -34,12 +35,18 @@ class Base:
         json_str = []
         if list_dictionaries is not None:
             for dct in list_dictionaries:
-                json_str.append(json.dumps(dct))
+                json_str.append(dct)
 
-        return str(json_str)
+        return json.dumps(json_str)
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """Writes the JSON string representation of list_objs to a file
+
+        Args:
+            cls: a user-defined class
+            list_objs: a list of instances that inherit from Base
+        """
         obj_list = []
 
         if list_objs is not None:
@@ -49,20 +56,69 @@ class Base:
                     temp_key = key
                     if key != "id":
                         temp_key = key.split("__")[1]
-
                     temp_dict[temp_key] = obj.__dict__[key]
+
                 obj_list.append(temp_dict)
 
         with open("{}.json".format(cls.__name__), "w") as file:
-            json.dump(Base.to_json_string(obj_list))
+            file.write(Base.to_json_string(obj_list))
 
     @staticmethod
     def from_json_string(json_string):
-        """Returns the list of the JSON string representation json_string
+        """Returns the list of the JSON string representation of json_string
 
         Args:
             json_string: (list)
+
+        Returns:
+
         """
         if not json_string:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Creates new instance of a class that inherits from Base with all
+        all attributes already set
+
+        Args:
+            cls: the class of the new instance
+            **dictionary: a keyword-only argument collector for dictionaries
+
+        Returns:
+            the new instance of @cls with all attributes set
+        """
+        if cls.__name__ == "Rectangle":
+            temp = cls(99, 99)
+        else:
+            temp = cls(99)
+        temp.update(**dictionary)
+
+        return temp
+
+    @classmethod
+    def load_from_file(cls):
+        """Creates instances of a class @cls from string in a JSON file.
+
+        Args:
+            cls: the class using the method
+
+        Returns:
+            if file doesn't exist: an empty list
+            if file exists: a list of instances
+        """
+        cls_instances = []
+        file_name = "{}.json".format(cls.__name__)
+
+        if os.path.exists(file_name) is False:
+            return []
+
+        with open("{}.json".format(cls.__name__), "r") as file:
+            json_string = file.read()
+
+        cls_dict_list = Base.from_json_string(json_string)
+        for dct in cls_dict_list:
+            cls_instances.append(cls.create(**dct))
+
+        return cls_instances

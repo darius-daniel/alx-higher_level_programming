@@ -112,7 +112,8 @@ class Rectangle(Base):
         """Computes the value of area value of the Rectangle instance
 
         Returns:
-            int: the area of the Rectangle instance (self.__width * self.__height)
+            int: the area of the Rectangle instance
+                    (self.__width * self.__height)
         """
         return self.width * self.height
 
@@ -137,17 +138,15 @@ class Rectangle(Base):
             *args: a positional argument collector
             **kwargs: key-only argument collector
         """
+        attrs = ('id', 'width', 'height', 'x', 'y')
         if args is not None and len(args) > 0:
-            attrs = ('id', 'width', 'height', 'x', 'y')
             last_idx = len(attrs) - 1
-
             i = 0
             for arg in args:
                 if i <= last_idx:
                     setattr(self, attrs[i], arg)
                 i += 1
         else:
-            attrs = ('id', 'width', 'height', 'x', 'y')
             for key, value in kwargs.items():
                 if key in attrs:
                     setattr(self, key, value)
@@ -161,15 +160,15 @@ class Rectangle(Base):
         for attr in attrs:
             for key in self.__dict__.keys():
                 if attr in key.split("__"):
-                    rect_dict[attr] = self.__dict__[key]
+                    rect_dict[attr] = getattr(self, key)
 
         return rect_dict
-
 
     def __str__(self):
         """Print the string representation of the Rectangle instance
         """
-        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
-                                                            self.id, self.x,
-                                                            self.y, self.width,
-                                                            self.height)
+        _rect = "[Rectangle]"
+        _id = "({})".format(self.id)
+        x_and_y = "{}/{} - ".format(self.x, self.y)
+        width_and_height = "{}/{}".format(self.width, self.height)
+        return _rect + _id + x_and_y + width_and_height
