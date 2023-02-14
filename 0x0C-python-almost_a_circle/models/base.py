@@ -57,12 +57,14 @@ class Base:
                     temp_key = key
                     if key != "id":
                         temp_key = key.split("__")[1]
+                        if temp_key == 'width' or temp_key == 'height':
+                            temp_key = 'size'
                     temp_dict[temp_key] = obj.__dict__[key]
 
                 obj_list.append(temp_dict)
 
         with open("{}.json".format(cls.__name__), "w") as file:
-            file.write(Base.to_json_string(obj_list))
+            file.write(cls.to_json_string(obj_list))
 
     @staticmethod
     def from_json_string(json_string):
@@ -175,9 +177,9 @@ class Base:
             for row in reader:
                 obj_dict = {}
                 for i in range(len(form)):
-                    key = form[i]
-                    value = int(row[i])
+                    key, value = form[i], int(row[i])
                     obj_dict[key] = value
-                obj_list.append(cls.create(**obj_dict))
+                new_cls_obj = cls.create(**obj_dict)
+                obj_list.append(cls.create(new_cls_obj))
 
         return obj_list

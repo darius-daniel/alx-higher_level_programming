@@ -414,3 +414,17 @@ class TestRectangleMethods(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             rect = Rectangle(8, 11, 1, 3, 25, 50)
+
+    def test_create_rect(self):
+        Rectangle(1, 2)
+        with self.assertRaises(TypeError):
+            Rectangle(1, '2')
+        with self.assertRaises(ValueError):
+            Rectangle(1, -2)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 0)
+        with self.assertRaises(TypeError):
+            Rectangle(1, [2])
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2.3)
+        
