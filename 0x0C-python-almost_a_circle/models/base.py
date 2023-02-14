@@ -5,6 +5,7 @@ in order to avoid duplicating the same code (and by extension the same bugs)
 """
 import json
 import os
+import csv
 
 
 class Base:
@@ -122,3 +123,61 @@ class Base:
             cls_instances.append(cls.create(**dct))
 
         return cls_instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serializes in CSV
+
+        Args:
+            cls: the class calling the method
+            list_objs: a list of objs to be serialized
+        """
+        filename = "{}.csv".format(cls.__name__)
+        if cls.__name__ == "Rectangle":
+            form = ('id', 'width', 'height', 'x', 'y')
+        else:
+            form = ('id', 'size', 'x', 'y')
+
+        values = []
+        if list_objs:
+            for obj in list_objs:
+                obj_attr_values = []
+                for item in form:
+                    obj_attr_values.append(getattr(obj, item))
+                values.append(obj_attr_values)
+
+        with open(filename, "w") as file:
+            writer = csv.writer(file, delimiter=',')
+            if values:
+                for attr_list in values:
+                    writer.writerow(attr_list)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserializes from CSV
+
+        Args:
+            cls: the class calling the method
+            list_objs: a list of objs to be serialized
+        """
+        filename = "{}.csv".format(cls.__name__)
+        if not os.path.exists(filename):
+            return []
+
+        if cls.__name__ == "Rectangle":
+            form = ('id', 'width', 'height', 'x', 'y')
+        else:
+            form = ('id', 'size', 'x', 'y')
+
+        with open(filename, "r") as file:
+            reader = csv.reader(file, delimiter=',')
+            obj_list = []
+            for row in reader:
+                obj_dict = {}
+                for i in range(len(form)):
+                    key = form[i]
+                    value = int(row[i])
+                    obj_dict[key] = value
+                obj_list.append(cls.create(**obj_dict))
+
+        return obj_list
