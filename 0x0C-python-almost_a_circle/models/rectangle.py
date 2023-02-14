@@ -170,7 +170,7 @@ class Rectangle(Base):
         """Print the string representation of the Rectangle instance
         """
         _rect = "[Rectangle]"
-        _id = "({})".format(self.id)
-        x_and_y = "{}/{} - ".format(self.x, self.y)
-        width_and_height = "{}/{}".format(self.width, self.height)
+        _id = "({:d})".format(self.id)
+        x_and_y = "{:d}/{:d} - ".format(self.x, self.y)
+        width_and_height = "{:d}/{:d}".format(self.width, self.height)
         return _rect + _id + x_and_y + width_and_height
