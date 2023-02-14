@@ -42,7 +42,7 @@ class Square(Rectangle):
             *args: a positional argument collector
             **kwargs: a key-word argument collector
         """
-        attrs = ("id", "size", "x", "y")
+        attrs = ("id", "size", "x", "y", 'width', 'height')
         if args is not None and len(args) != 0:
             i = 0
             last_idx = len(attrs) - 1
