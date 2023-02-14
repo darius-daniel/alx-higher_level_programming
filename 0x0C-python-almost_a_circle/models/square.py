@@ -68,12 +68,10 @@ class Square(Rectangle):
         sq_dict = {}
         attrs = ("id", "size", "x", "y")
         for attr in attrs:
-            for key in self.__dict__.keys():
-                toks = key.split("__")
-                if attr in toks:
-                    sq_dict[attr] = self.__dict__[key]
-                elif "height" in toks or "width" in toks:
-                    sq_dict["size"] = getattr(self, key)
+            if attr == 'size':
+                sq_dict[attr] = getattr(self, 'width')
+            else:
+                sq_dict[attr] = getattr(self, attr)
 
         return sq_dict
 
