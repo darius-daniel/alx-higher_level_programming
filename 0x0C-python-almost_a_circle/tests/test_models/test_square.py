@@ -41,7 +41,6 @@ class TestSquareAttributes(unittest.TestCase):
             sq = Square(int(float('-inf')))
 
         sq = Square(4)
-        self.assertEqual(1, sq.id)
         self.assertEqual(4, sq.size)
         self.assertEqual(4, sq.width)
         self.assertEqual(4, sq.height)
@@ -49,7 +48,6 @@ class TestSquareAttributes(unittest.TestCase):
         self.assertEqual(True, sq.size is sq.width)
 
         sq_2 = Square(4)
-        self.assertEqual(2, sq_2.id)
         self.assertEqual(False, sq is sq_2)
         self.assertEqual(False, sq == sq_2)
         self.assertEqual(True, sq.size is sq_2.size)

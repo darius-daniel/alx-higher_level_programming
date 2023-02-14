@@ -121,11 +121,11 @@ class Rectangle(Base):
         """Prints to stdout the Rectangle instance with the character '#'
         """
         output = ""
-        if self.y > 0:
-            output += ('\n' * self.y)
+        # if self.y > 0:
+        #     output += ('\n' * self.y)
 
         for i in range(self.height):
-            output += " " * self.x
+            # output += " " * self.x
             output += ('#' * self.width) + "\n"
 
         print(output)

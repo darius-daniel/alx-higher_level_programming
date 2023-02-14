@@ -53,7 +53,7 @@ class Square(Rectangle):
         else:
             for key, value in kwargs.items():
                 if key in attrs:
-                    if key == "size":
+                    if key == 'size':
                         setattr(self, "width", value)
                         setattr(self, "height", value)
                     else:
