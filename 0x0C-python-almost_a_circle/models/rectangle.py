@@ -169,7 +169,7 @@ class Rectangle(Base):
     def __str__(self):
         """Print the string representation of the Rectangle instance
         """
-        _rect = "[Rectangle]"
+        _rect = "[Rectangle] "
         _id = "({:d})".format(self.id)
         x_and_y = "{:d}/{:d} - ".format(self.x, self.y)
         width_and_height = "{:d}/{:d}".format(self.width, self.height)
