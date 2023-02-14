@@ -3,6 +3,8 @@
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
+from io import StringIO
+from unittest.mock import patch
 import unittest
 
 

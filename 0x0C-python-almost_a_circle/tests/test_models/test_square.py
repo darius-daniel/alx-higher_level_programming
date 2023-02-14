@@ -84,7 +84,7 @@ class TestSquareAttributes(unittest.TestCase):
         sq = Square(6)
         self.assertEqual(sq.size, 6)
         self.assertEqual(sq.x, 0)
-        self.assertEqual(sq.id, 3)
+        self.assertEqual(sq.id, 21)
 
         sq.x = 4
         self.assertEqual(sq.x, 4)
@@ -120,7 +120,7 @@ class TestSquareAttributes(unittest.TestCase):
         """Tests on the y (vertical offset) attribute of the Square instance
         """
         sq = Square(10, 4, 2)
-        self.assertTrue(sq.id, 4)
+        self.assertTrue(sq.id, 22)
         self.assertTrue(sq.size, 10)
         self.assertTrue(sq.x, 4)
         self.assertTrue(sq.y, 2)
@@ -166,7 +166,7 @@ class TestSquareMethods(unittest.TestCase):
         self.assertEqual(sq.size, 17)
         self.assertEqual(sq.x, 0)
         self.assertEqual(sq.y, 0)
-        # self.assertEqual(sq.id, 8)
+        self.assertEqual(sq.id, 26)
 
         sq.update(0)
         self.assertEqual(sq.size, 17)
@@ -251,15 +251,15 @@ class TestSquareMethods(unittest.TestCase):
         """Tests on the 'to_dictionary' method of the Square class
         """
         sq = Square(5)
-        sq_dict = {'size': 5, 'x': 0, 'y': 0, 'id': 5}
+        sq_dict = {'size': 5, 'x': 0, 'y': 0, 'id': 23}
         self.assertDictEqual(sq_dict, sq.to_dictionary())
 
         sq = Square(8, 2)
-        sq_dict = {'id': 6, 'size': 8, 'x': 2, 'y': 0}
+        sq_dict = {'id': 24, 'size': 8, 'x': 2, 'y': 0}
         self.assertDictEqual(sq_dict, sq.to_dictionary())
 
         sq = Square(15, 1, 3)
-        sq_dict = {'id': 7, 'size': 15, 'x': 1, 'y': 3}
+        sq_dict = {'id': 25, 'size': 15, 'x': 1, 'y': 3}
         self.assertDictEqual(sq_dict, sq.to_dictionary())
 
         sq = Square(45, 13, 5, 89)

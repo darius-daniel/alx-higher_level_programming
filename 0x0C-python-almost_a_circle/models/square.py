@@ -42,13 +42,13 @@ class Square(Rectangle):
             *args: a positional argument collector
             **kwargs: a key-word argument collector
         """
-        attrs = ("id", "size", "x", "y", 'width', 'height')
+        attrs = ("id", "width", "x", "y")
         if args is not None and len(args) != 0:
             i = 0
             last_idx = len(attrs) - 1
             for arg in args:
                 if i <= last_idx:
-                    if attrs[i] == "size":
+                    if attrs[i] == "width":
                         setattr(self, 'width', arg)
                         setattr(self, 'height', arg)
                     else:
@@ -56,7 +56,7 @@ class Square(Rectangle):
                 i += 1
         else:
             for key, value in kwargs.items():
-                if key in attrs:
+                if key in attrs or key == "size":
                     if key == 'size':
                         setattr(self, "width", value)
                         setattr(self, "height", value)
