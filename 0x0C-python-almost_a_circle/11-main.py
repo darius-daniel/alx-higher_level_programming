@@ -20,7 +20,7 @@ if __name__ == "__main__":
     print(s1)
 
     s1.update(x=12)
-    print(s1)d
+    print(s1)
 
     s1.update(size=7, y=1)
     print(s1)

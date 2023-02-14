@@ -43,11 +43,14 @@ class Square(Rectangle):
             **kwargs: a key-word argument collector
         """
         attrs = ("id", "size", "x", "y")
-        if args is not None:
+        if args is not None and len(args) != 0:
             i = 0
             last_idx = len(attrs) - 1
             for arg in args:
                 if i <= last_idx:
+                    if attrs[i] == "size":
+                        setattr(self, 'width', arg)
+                        setattr(self, 'height', arg)
                     setattr(self, attrs[i], arg)
                 i += 1
         else:
