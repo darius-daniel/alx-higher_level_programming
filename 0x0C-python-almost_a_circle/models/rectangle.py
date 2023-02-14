@@ -126,7 +126,9 @@ class Rectangle(Base):
 
         for i in range(self.height):
             # output += " " * self.x
-            output += ('#' * self.width) + "\n"
+            output += ('#' * self.width)
+            if i < self.height - 1:
+                output += "\n"
 
         print(output)
 
