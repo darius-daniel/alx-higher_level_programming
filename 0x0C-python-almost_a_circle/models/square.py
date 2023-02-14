@@ -74,8 +74,8 @@ class Square(Rectangle):
 
     def __str__(self):
         """[Square] (<id>) <x>/<y> - <size> - in our case, width or height"""
-        sq = "[Square]"
-        _id = "({:d})".format(self.id)
+        sq = "[Square] "
+        _id = "({:d}) ".format(self.id)
         x_and_y = "{:d}/{:d} - ".format(self.x, self.y)
         size = "{:d}".format(self.size)
         return sq + _id + x_and_y + size
