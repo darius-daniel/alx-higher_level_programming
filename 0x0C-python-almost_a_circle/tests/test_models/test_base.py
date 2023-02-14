@@ -2,14 +2,14 @@
 """Tests the Contents of the module base.py"""
 from models.base import Base
 from models.rectangle import Rectangle
-from models.Square import Square
+from models.square import Square
 import unittest
 
 
 class TestBaseMethods(unittest.TestCase):
-	"""Tests the method of the Base class that are inherited by subclasses
-	"""
-	def setUp(self):
+    """Tests the method of the Base class that are inherited by subclasses
+    """
+    def setUp(self):
         """ Method invoked for each test """
         Base._Base__nb_objects = 0
 
