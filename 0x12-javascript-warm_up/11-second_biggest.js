@@ -1,8 +1,14 @@
 #!/usr/bin/node
+const integers = [];
 
-const arg_num = process.argv.length;
-if (arg_num <= 3) {
+for (let i = 0; i < process.argv.length; i++) {
+  if (isNaN(process.argv[i]) === false) {
+    integers.push(process.argv[i]);
+  }
+}
+
+if (process.argv.length <= 3) {
   console.log(0);
 } else {
-  console.log(process.argv.sort()[arg_num - 2]);
+  console.log(integers.sort()[integers.length - 2]);
 }
