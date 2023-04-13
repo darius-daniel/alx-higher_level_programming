@@ -7,10 +7,9 @@ function factorial(n) {
   return (n * factorial(n - 1));
 }
 
-if (process.argv.length < 3){
-  n = 1;
+if (process.argv.length < 3) {
+  console.log(factorial(1));
 } else {
-  n = parseInt(process.argv[2]);
+  let n = parseInt(process.argv[2]);
+  console.log(factorial(n));
 }
-
-console.log(factorial(n));
