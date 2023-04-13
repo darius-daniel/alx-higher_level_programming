@@ -7,7 +7,7 @@ class Rectangle {
     }
   }
 
-  print() {
+  print () {
     for (let i = 1; i <= this.height; i++) {
       let line = '';
 
@@ -18,13 +18,13 @@ class Rectangle {
     }
   }
 
-  rotate() {
+  rotate () {
     let temp = this.height;
     this.height = this.width;
     this.width = temp;
   }
 
-  double() {
+  double () {
     this.width *= 2;
     this.height *= 2;
   }
