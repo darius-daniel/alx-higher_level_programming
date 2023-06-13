@@ -7,5 +7,5 @@ console.log(myObject);
 /*
 YOUR CODE HERE
 */
-myObject['value'] = 89;
+myObject.value = 89;
 console.log(myObject);
