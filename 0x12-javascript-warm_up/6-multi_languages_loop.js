@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 const lines = [
-  'C if fun',
+  'C is fun',
   'Python is cool',
   'JavaScript is amazing'
 ];
