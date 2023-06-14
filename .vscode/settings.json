@@ -1,5 +1,6 @@
 {
-	"editor.fontFamily": "'JetbrainsMono Nerd Font', 'Roboto Mono', 'monospace', monospace",
-	"editor.fontSize": 12,
-	"editor.tabSize": 2
+	"editor.fontFamily": "'FantasqueSansMono Nerd Font', 'JetbrainsMono Nerd Font', 'Roboto Mono', 'monospace', monospace",
+	"editor.fontSize": 15,
+	"editor.tabSize": 2,
+	"files.autoSave": "afterDelay"
 }
