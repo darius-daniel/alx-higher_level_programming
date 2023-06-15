@@ -3,15 +3,14 @@ const dict = require('./101-data').dict;
 const entries = Object.entries(dict);
 const newDict = {};
 
-for (const entry of entries) {
-  if (entry[1] in Object.keys(newDict) === false) {
+for (const nbOccurrence of Object.values(dict)) {
+  if (Object.keys(newDict).includes(nbOccurrence) === false) {
+    const logInfo = entries.filter((entry) => entry[1] === nbOccurrence);
     const userIds = [];
-    for (const e of entries) {
-      if (e[1] === entry[1]) {
-        userIds.push(e[0]);
-      }
+    for (const user of Object.values(logInfo)) {
+      userIds.push(user[0]);
     }
-    newDict[entry[1]] = userIds;
+    newDict[nbOccurrence] = userIds;
   }
 }
 
