@@ -8,7 +8,7 @@ for (const entry of entries) {
     const userIds = [];
     for (const e of entries) {
       if (e[1] === entry[1]) {
-        userIds.push(e[0].toString());
+        userIds.push(e[0]);
       }
     }
     newDict[entry[1]] = userIds;
