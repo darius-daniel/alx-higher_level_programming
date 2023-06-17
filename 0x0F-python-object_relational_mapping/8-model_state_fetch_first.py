@@ -15,7 +15,8 @@ if __name__ == '__main__':
         pool_pre_ping=True
     )
 
-    session = sessionmaker(bind=engine)()
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
     if session.query(States).count() == 0:
         print()
