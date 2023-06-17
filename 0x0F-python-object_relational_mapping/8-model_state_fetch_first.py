@@ -19,7 +19,7 @@ if __name__ == '__main__':
     session = Session()
 
     if session.query(States).count() == 0:
-        print()
+        print('Nothing')
     else:
         state = session.query(States).order_by(id).first()
         print("{}: {}".format(state.id, state.name))
