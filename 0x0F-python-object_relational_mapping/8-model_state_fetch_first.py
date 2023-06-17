@@ -2,10 +2,10 @@
 """
 A script that prints the first State Object from the database hbtn_0e_6_usa
 """
+import sys
+from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from model_state import States, Base
-import sys
 
 if __name__ == '__main__':
     engine = create_engine(
@@ -18,8 +18,8 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    if session.query(States).count() == 0:
+    if session.query(State).count() == 0:
         print('Nothing')
     else:
-        state = session.query(States).order_by(id).first()
+        state = session.query(State).order_by(id).first()
         print("{}: {}".format(state.id, state.name))
