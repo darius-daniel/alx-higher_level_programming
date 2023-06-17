@@ -19,6 +19,7 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).all().filter(State.name.like('%\a%'))
+    states = session.query(State).all()
     for state in states:
-        print("{}: {}".format(state.id, state.name))
+        if 'a' in state.name:
+            print("{}: {}".format(state.id, state.name))
