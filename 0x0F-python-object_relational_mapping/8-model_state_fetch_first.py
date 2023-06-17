@@ -16,5 +16,9 @@ if __name__ == '__main__':
     )
 
     session = sessionmaker(bind=engine)()
-    state = session.query(States).first()
-    print("{}: {}".format(state.id, state.name))
+
+    if session.query(States).count() == 0:
+        print()
+    else:
+        state = session.query(States).first()
+        print("{}: {}".format(state.id, state.name))
