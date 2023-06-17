@@ -13,7 +13,7 @@ if __name__ == '__main__':
         db=sys.argv[3]
     )
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM hbtn_0e_0_usa.states")
+    cursor.execute("SELECT * FROM states")
     states = cursor.fetchall()
 
     for state in states:
