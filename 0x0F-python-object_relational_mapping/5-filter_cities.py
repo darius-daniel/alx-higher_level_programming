@@ -16,7 +16,9 @@ if __name__ == '__main__':
 
     cursor = db.cursor()
     cursor.execute(
-        f"SELECT c.name FROM cities c JOIN states s ON s.id = c.state_id WHERE s.name='{sys.argv[4]}';"
+        f"SELECT c.name FROM cities c \
+            JOIN states s ON s.id = c.state_id \
+                WHERE s.name='{sys.argv[4]}';"
     )
     cities = cursor.fetchall()
 
