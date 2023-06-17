@@ -15,7 +15,7 @@ if __name__ == '__main__':
     )
     cursor = db.cursor()
     name = sys.argv[4].split(';')[0].strip("'")
-    cursor.execute(f"SELECT * FROM hbtn_0e_0_usa.states WHERE name='{name}'")
+    cursor.execute(f"SELECT * FROM states WHERE name='{name}'")
     states = cursor.fetchall()
 
     for state in states:

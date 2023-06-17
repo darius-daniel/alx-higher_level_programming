@@ -14,7 +14,7 @@ if __name__ == '__main__':
     )
 
     cursor = db.cursor()
-    cursor.execute("SELECT id, name FROM hbtn_0e_4_usa.cities")
+    cursor.execute("SELECT id, name FROM cities")
     cities = cursor.fetchall()
 
     for city in cities:
