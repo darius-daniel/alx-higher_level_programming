@@ -15,8 +15,8 @@ if __name__ == '__main__':
     )
     cursor = db.cursor()
     cursor.execute(
-        f"SELECT * FROM states WHERE CONVERT(`name` USING Latin1) \
-            COLLATE Latin1_General_CS LIKE '{sys.argv[4]}'"
+        "SELECT * FROM states WHERE CONVERT(`name` USING Latin1) \
+            COLLATE Latin1_General_CS LIKE '{}'".format(sys.argv[4])
     )
     states = cursor.fetchall()
 
