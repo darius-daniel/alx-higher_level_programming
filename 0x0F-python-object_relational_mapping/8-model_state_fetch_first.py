@@ -4,7 +4,7 @@ A script that prints the first State Object from the database hbtn_0e_6_usa
 """
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.engine import create_engine
-from model_state import States
+from model_state import States, Base
 import sys
 
 if __name__ == '__main__':
@@ -20,5 +20,5 @@ if __name__ == '__main__':
     if session.query(States).count() == 0:
         print()
     else:
-        state = session.query(States).first()
+        state = session.query(States).order_by(id).first()
         print("{}: {}".format(state.id, state.name))
