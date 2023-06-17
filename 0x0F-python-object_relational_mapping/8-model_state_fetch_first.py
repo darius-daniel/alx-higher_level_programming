@@ -21,5 +21,5 @@ if __name__ == '__main__':
     if session.query(State).count() == 0:
         print('Nothing')
     else:
-        state = session.query(State).order_by(id).first()
+        state = session.query(State).first()
         print("{}: {}".format(state.id, state.name))
