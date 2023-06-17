@@ -5,3 +5,4 @@ __pycache__
 test.c
 test.js
 *-main.js
+.idea

@@ -12,9 +12,9 @@ if __name__ == '__main__':
         passwd=sys.argv[2],
         db=sys.argv[3]
     )
-    cur = db.cursor()
-    cur.execute("SELECT * FROM htbn_0e_0_usa.states ORDER BY id ASC")
-    states = cur.fetchall()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM hbtn_0e_0_usa.states")
+    states = cursor.fetchall()
 
     for state in states:
         print(state)
