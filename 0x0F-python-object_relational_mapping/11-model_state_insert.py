@@ -21,3 +21,4 @@ if __name__ == '__main__':
     new_entry = State(name='Louisiana')
     session.add(new_entry)
     session.commit()
+    print(new_entry.id)
