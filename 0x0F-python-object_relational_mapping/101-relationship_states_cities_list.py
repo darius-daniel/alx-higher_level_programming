@@ -23,7 +23,7 @@ if __name__ == '__main__':
     query = session.query(State, City).join(City, State.id == City.state_id)
     states_and_cities = query.all()
 
-    for state in states_and_cities.keys():
+    for state, cities in states_and_cities:
         print("{}: {}".format(state.id, state.name))
-        for city in states_and_cities[state]:
+        for city in cities:
             print("{}{}: {}".format('\t', city.id, city.name))

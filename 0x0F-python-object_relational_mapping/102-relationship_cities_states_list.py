@@ -22,4 +22,4 @@ if __name__ == '__main__':
     query = session.query(City, State).join(State, State.id == City.state_id)
     cities = query.all()
     for state, city in cities:
-        print("{}: {}->{}".format(city.id, city.name, state.name))
+        print("{}: {} -> {}".format(city.id, city.name, state.name))
