@@ -22,5 +22,5 @@ if __name__ == '__main__':
     query = session.query(State).join(City)
     states = query.order_by(City.id.asc()).all()
     for state in states:
-        for city in states.cities:
+        for city in state.cities:
             print("{}: {} -> {}".format(city.id, city.name, state.name))
