@@ -1,3 +1,3 @@
 #!/bin/bash
 # A script to display the body of the response
-curl -s -w"%{http_code}" -o /dev/null "$1"
+curl -s -w"%{200}" -o /dev/null "$1"
