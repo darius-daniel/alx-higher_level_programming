@@ -1,3 +1,3 @@
 #!/bin/bash
 # A script that displays all HTTP methods a server will accept
-curl -sI "$1" | grep OPTIONS | cut -d ' ' -f 1
+curl -sI "$1" | grep OPTIONS | cut -d ' ' -f 2-
