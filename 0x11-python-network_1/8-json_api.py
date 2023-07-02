@@ -23,4 +23,4 @@ if __name__ == '__main__':
         if not content:
             print("No result")
         else:
-            print("{} {}".format(content.get('id'), content.get('name')))
+            print("[{}] {}".format(content.get('id'), content.get('name')))
