@@ -16,11 +16,11 @@ if __name__ == '__main__':
     url = "http://0.0.0.0:5000/search_user"
     r = requests.post(url, data={'q': letter})
     try:
-        content = dict(r.text)
+        content = r.json()
     except Exception as e:
         print('Not a valid JSON')
     else:
-        if len(content.keys()) == 0:
+        if not content:
             print("No result")
         else:
             print("{} {}".format(content['id'], content['name']))
