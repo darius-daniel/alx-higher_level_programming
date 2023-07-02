@@ -8,8 +8,11 @@ import requests
 
 
 if __name__ == '__main__':
-    url = "https://api.github.com/users/{}".format(sys.argv[1])
-    r = requests.get(url, headers={'Authorization': sys.argv[2]})
+    url = "https://api.github.com/user"
+    r = requests.get(
+        url,
+        auth=requests.auth.HTTPBasicAuth(sys.argv[1],sys.argv[2])
+    )
 
     if r.status_code == 200:
         fields = r.json()
