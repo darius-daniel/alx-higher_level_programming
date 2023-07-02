@@ -8,14 +8,9 @@ from sys import argv
 
 
 if __name__ == '__main__':
-    url = argv[1]
-    req = request.Request(url)
     try:
-        trial = request.urlopen(req)
+      with request.urlopen(argv[1]) as response:
+        body_content = response.read()
+        print(body_content.decode('utf-8'))
     except error.HTTPError as e:
-        print("Error Code: {}".format(e.code))
-    else:
-        trial.close()
-        with request.urlopen(url) as response:
-            content = response.read()
-            print(content)
+      print("Error code: {}".format(e.code))
