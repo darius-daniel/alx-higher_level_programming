@@ -9,7 +9,7 @@ request(url, (error, response, body) => {
   } else {
     for (const task of JSON.parse(body)) {
       if (task.completed === true) {
-        if (Object.keys(output).includes(`${task.userId}`)) {
+        if (Object.keys(output).includes(`${task.userId}`) === true) {
           output[`${task.userId}`]++;
         } else {
           output[`${task.userId}`] = 1;
